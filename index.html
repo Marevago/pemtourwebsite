@@ -52,16 +52,9 @@
     </nav>
     <!-- Mashead header-->
     <header class="masthead">
-        <video class="masthead-bg-video" muted autoplay loop playsinline id="hero-video">
+        <video class="masthead-bg-video" muted autoplay loop playsinline>
+            <source src="./images/jolimont-cover-desktop.mp4" type="video/mp4" />
         </video>
-        <script>
-            var v = document.getElementById('hero-video');
-            v.src = window.innerWidth >= 768
-                ? './images/jolimont-cover-desktop.mp4'
-                : './images/jolimont-cover-mobile.mp4';
-            v.load();
-            v.play().catch(function(){});
-        </script>
         <div class="masthead-overlay"></div>
         <div class="container px-5">
             <div class="row justify-content-center">
