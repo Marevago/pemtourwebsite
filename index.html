@@ -68,6 +68,7 @@
                 v.src = window.innerWidth < 768
                     ? './images/jolimont-cover-mobile.mp4'
                     : './images/jolimont-cover-desktop.mp4';
+                v.load();
                 v.play().catch(function() {
                     v.addEventListener('canplay', function() {
                         v.play().catch(function(){});
@@ -136,110 +137,91 @@
         <div class="container px-5">
             <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
                 <div class="col-12">
-                    <h2 class="display-4 lh-1 mb-4">Top queridinhos mais vendidos</h2>
+                    <h2 class="display-4 lh-1 mb-4">Confira nossos passeios!</h2>
                 </div>
             </div>
-    <!--TOP 6 PASSEIOS-->
-    <div class="row">
-        <div class="col-md-4 mb-5">
-            <div class="card">
-                <img src="./images/tourVinho.webp" class="card-img-top" alt="Taça de vinho Jolimont" title="Vinícola Jolimont">
-                <div class="card-body">
-                    <h5 class="card-title">Tour do Vinho</h5>
-                    <p class="card-text">Conheça a vinícola Jolimont e deguste vinhos deliciosos. </p>
-                    <a href="./tourvinho.html" class="btn btn-warning">ver mais</a>
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="./images/tourVinho.webp" class="card-img-top" alt="Taça de vinho Jolimont" title="Vinícola Jolimont">
+                        <div class="card-body">
+                            <h5 class="card-title">Tour do Vinho</h5>
+                            <p class="card-text">Conheça a vinícola Jolimont e deguste vinhos deliciosos.</p>
+                            <a href="./tourvinho.html" class="btn btn-warning btn-confira">CONFIRA!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="./images/tourLinhaBella.webp" class="card-img-top" alt="ônibus do passeio Linha Bella" title="Passeio Linha Bella">
+                        <div class="card-body">
+                            <h5 class="card-title">Linha Bella</h5>
+                            <p class="card-text">Participe de um lindo tour em meio a lindas paisagens.</p>
+                            <a href="./linhabella.html" class="btn btn-warning btn-confira">CONFIRA!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="./images/tourNoiteGaucha.webp" class="card-img-top" alt="pessoas com trajes típicos gaúchos festejando" title="Jantar Noite Gaúcha">
+                        <div class="card-body">
+                            <h5 class="card-title">Noite Gaúcha</h5>
+                            <p class="card-text">Experimente um churrasco maravilhoso e muita animação.</p>
+                            <a href="./noitegaucha.html" class="btn btn-warning btn-confira">CONFIRA!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="./images/tourNoiteItaliana.webp" class="card-img-top" alt="homem tocando violão na Noite Italiana" title="Jantar Noite Italiana">
+                        <div class="card-body">
+                            <h5 class="card-title">Noite Italiana</h5>
+                            <p class="card-text">Conheça a cultura e gastronomia das famílias italianas.</p>
+                            <a href="./noiteitaliana.html" class="btn btn-warning btn-confira">CONFIRA!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="./images/gramadoCanela.webp" class="card-img-top" alt="rua torta de Gramado" title="Tour Gramado e Canela">
+                        <div class="card-body">
+                            <h5 class="card-title">Tour Gramado e Canela</h5>
+                            <p class="card-text">Conheça os pontos mais marcantes de Gramado e Canela.</p>
+                            <a href="./gramadocanela.html" class="btn btn-warning btn-confira">CONFIRA!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="./images/card-ps-olivas.webp" class="card-img-top" alt="casal olhando o pôr do sol no Olivas" title="Tour Pôr do sol Olivas">
+                        <div class="card-body">
+                            <h5 class="card-title">Tour Pôr do Sol Olivas</h5>
+                            <p class="card-text">Curta um pôr do sol simplesmente inesquecível.</p>
+                            <a href="./pordosol-olivas.html" class="btn btn-warning btn-confira">CONFIRA!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="./images/card-mfumaca.webp" class="card-img-top" alt="trem Maria Fumaça" title="Passeio de trem Maria Fumaça">
+                        <div class="card-body">
+                            <h5 class="card-title">Passeio Maria Fumaça</h5>
+                            <p class="card-text">Curta o famoso trem Maria Fumaça e Epopeia Italiana.</p>
+                            <a href="./mariafumaca.html" class="btn btn-warning btn-confira">CONFIRA!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img src="./images/capaTransfer.webp" class="card-img-top" alt="homem abrindo a porta do carro para transfer" title="Transporte para Transfer">
+                        <div class="card-body">
+                            <h5 class="card-title">Transfer Gramado x Aeroporto</h5>
+                            <p class="card-text">Transfer Gramado para Aeroporto e Aeroporto para Gramado.</p>
+                            <a href="./transfer.html" class="btn btn-warning btn-confira">CONFIRA!</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 mb-5">
-            <div class="card">
-                <img src="./images/tourLinhaBella.webp" class="card-img-top" alt="ônibus da do passeio Linha Bella" title="Passeio Linha Bella">
-                <div class="card-body">
-                    <h5 class="card-title">Linha Bella</h5>
-                    <p class="card-text">Participe de um lindo tour em meio a lindas paisagens.</p>
-                    <a href="./linhabella.html" class="btn btn-warning">ver mais</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-12">
-        <h2 class="display-4 lh-1 mb-4">Jantar e muita diversão</h2>
-    </div>
-    <div class="row">
-        <div class="col-md-4 mb-5">
-            <div class="card">
-                <img src="./images/tourNoiteGaucha.webp" class="card-img-top" alt="pessoas com trajes típicos gaúchos festejando" title="Jantar Noite Gaúcha">
-                <div class="card-body">
-                    <h5 class="card-title">Noite Gaúcha</h5>
-                    <p class="card-text">Experimente um churrasco maravilhoso e muita animação.</p>
-                    <a href="./noitegaucha.html" class="btn btn-warning">ver mais</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-5">
-            <div class="card">
-                <img src="./images/tourNoiteItaliana.webp" class="card-img-top" alt="homem tocando violão na Noite Italiana" title="Jantar Noite Italiana">
-                <div class="card-body">
-                    <h5 class="card-title">Noite Italiana</h5>
-                    <p class="card-text">Conheça a cultura e gastronomia das famílias italianas.</p>
-                    <a href="./noiteitaliana.html" class="btn btn-warning">ver mais</a>
-                </div>
-            </div>
-        </div>
-
-        </div>
-        <div class="col-12">
-            <h2 class="display-4 lh-1 mb-4">Para encantar-se</h2>
-        </div>
-        <div class="row">
-        <div class="col-md-4 mb-5">
-            <div class="card">
-                <img src="./images/gramadoCanela.webp" class="card-img-top" alt="rua torta de Gramado" title="Tour Gramado e Canela">
-                <div class="card-body">
-                    <h5 class="card-title">Tour Gramado e Canela</h5>
-                    <p class="card-text">Conheça os pontos mais marcantes de Gramado e Canela. </p>
-                    <a href="./gramadocanela.html" class="btn btn-warning">ver mais</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4 mb-5">
-            <div class="card">
-                <img src="./images/card-ps-olivas.webp" class="card-img-top" alt="casal olhando o pôr do sol no Olivas" title="Tour Pôr do sol Olivas">
-                <div class="card-body">
-                    <h5 class="card-title">Tour Por do Sol Olivas</h5>
-                    <p class="card-text">Curta um pôr do sol simplesmente inesquecível.</p>
-                    <a href="./pordosol-olivas.html" class="btn btn-warning">ver mais</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-5">
-            <div class="card">
-                <img src="./images/card-mfumaca.webp" class="card-img-top" alt="trem Maria Fumaça" title="Passeio de trem Maria Fumaça">
-                <div class="card-body">
-                    <h5 class="card-title">Passeio Maria Fumaça</h5>
-                    <p class="card-text">Curta o famoso trem Maria Fumaça e Epopeia Italiana.</p>
-                    <a href="./mariafumaca.html" class="btn btn-warning">ver mais</a>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="col-12">
-            <h2 class="display-4 lh-1 mb-4">Transfer</h2>
-        </div>
-        <div class="row">
-        <div class="col-md-4 mb-5">
-            <div class="card">
-                <img src="./images/capaTransfer.webp" class="card-img-top" alt="homem abrindo a porta do carro para transfer" title="Transporte para Transfer">
-                <div class="card-body">
-                    <h5 class="card-title">Transfer Gramado x Aeroporto </h5>
-                    <p class="card-text">Transfer Gramado para Aeroporto e Aeroporto para Gramado.</p>
-                    <a href="./transfer.html" class="btn btn-warning">ver mais</a>
-                </div>
-            </div>
-        </div>
         </div>
     </section>
     <!-- PARCEIROS section-->
