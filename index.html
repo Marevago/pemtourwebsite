@@ -56,10 +56,11 @@
         </video>
         <script>
             var v = document.getElementById('hero-video');
-            var src = window.innerWidth >= 768
+            v.src = window.innerWidth >= 768
                 ? './images/jolimont-cover-desktop.mp4'
                 : './images/jolimont-cover-mobile.mp4';
-            v.src = src;
+            v.load();
+            v.play().catch(function(){});
         </script>
         <div class="masthead-overlay"></div>
         <div class="container px-5">
