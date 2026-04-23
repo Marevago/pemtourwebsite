@@ -10949,7 +10949,7 @@ html {
 
 .device[data-device=iPhoneX][data-orientation=portrait][data-color=black]::after {
   content: "";
-  background-image: url("../images/portrait_black.png");
+  background-image: url("../images/portrait_black.webp");
 }
 
 .device[data-device=iPhoneX][data-orientation=portrait][data-color=black] .button {
