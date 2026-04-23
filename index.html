@@ -60,7 +60,7 @@
     </nav>
     <!-- Mashead header-->
     <header class="masthead">
-        <video class="masthead-bg-video" muted autoplay loop playsinline id="hero-video" poster="./images/hero-poster.jpg">
+        <video class="masthead-bg-video" muted autoplay loop playsinline id="hero-video" poster="./images/hero-poster.jpg" preload="auto">
         </video>
         <script>
             (function() {
@@ -71,14 +71,9 @@
                     ? './images/jolimont-cover-mobile.mp4'
                     : './images/jolimont-cover-desktop.mp4';
                 v.load();
-                var p = v.play();
-                if (p !== undefined) {
-                    p.catch(function() {
-                        v.addEventListener('canplay', function() {
-                            v.play().catch(function(){});
-                        }, { once: true });
-                    });
-                }
+                v.addEventListener('canplay', function() {
+                    v.play().catch(function(){});
+                }, { once: true });
             })();
         </script>
         <div class="masthead-overlay"></div>
