@@ -60,7 +60,7 @@
     </nav>
     <!-- Mashead header-->
     <header class="masthead">
-        <video class="masthead-bg-video" muted autoplay loop playsinline id="hero-video" poster="./images/hero-poster.jpg" preload="auto">
+        <video class="masthead-bg-video" muted autoplay loop playsinline id="hero-video" poster="./images/hero-poster.jpg">
         </video>
         <script>
             (function() {
@@ -70,10 +70,6 @@
                 v.src = isMobile
                     ? './images/jolimont-cover-mobile.mp4'
                     : './images/jolimont-cover-desktop.mp4';
-                v.load();
-                v.addEventListener('canplay', function() {
-                    v.play().catch(function(){});
-                }, { once: true });
             })();
         </script>
         <div class="masthead-overlay"></div>
@@ -290,11 +286,12 @@
             var v = document.querySelector('.masthead-bg-video');
             if (!v) return;
             v.muted = true;
-            function play() { v.play().catch(function(){}); }
-            if (v.readyState >= 2) { play(); }
-            else { v.addEventListener('loadeddata', play, { once: true }); }
-            document.addEventListener('touchstart', function() { if (v.paused) play(); }, { once: true });
-            document.addEventListener('click', function() { if (v.paused) play(); }, { once: true });
+            function tryPlay() { if (v.paused) v.play().catch(function(){}); }
+            tryPlay();
+            v.addEventListener('canplay', tryPlay, { once: true });
+            v.addEventListener('loadeddata', tryPlay, { once: true });
+            document.addEventListener('touchstart', function() { tryPlay(); }, { once: true });
+            document.addEventListener('click', function() { tryPlay(); }, { once: true });
         })();
     </script>
     <!-- Card entrance animation -->
