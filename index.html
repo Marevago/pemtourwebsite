@@ -9,10 +9,16 @@
     <meta name="author" content="" />
     <title>P&M Tour Gramado</title>
     <link rel="icon" type="image/png" href="images/logo.png" />
+    <!-- Preconnect to external CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://pro.fontawesome.com" />
+    <!-- Preload hero poster for LCP -->
+    <link rel="preload" href="images/hero-poster.jpg" as="image" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap"
         rel="stylesheet" />
     <link
@@ -23,10 +29,12 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <!--ICONS-->
-     <!--FONT AWESOME-->
+     <!--FONT AWESOME (async to avoid render blocking)-->
      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" media="print" onload="this.media='all'" />
+     <noscript><link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /></noscript>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
+     <noscript><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
 </head>
 
 <body id="page-top">
@@ -52,7 +60,7 @@
     </nav>
     <!-- Mashead header-->
     <header class="masthead">
-        <video class="masthead-bg-video" muted autoplay loop playsinline id="hero-video">
+        <video class="masthead-bg-video" muted autoplay loop playsinline id="hero-video" poster="./images/hero-poster.jpg">
         </video>
         <script>
             (function() {
