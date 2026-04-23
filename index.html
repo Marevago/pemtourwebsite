@@ -282,6 +282,19 @@
     <a href="https://api.whatsapp.com/send?phone=5551985994699&text=P%26M%20Tour-Gramado" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+    <!-- Video autoplay -->
+    <script>
+        (function() {
+            var v = document.querySelector('.masthead-bg-video');
+            if (!v) return;
+            v.muted = true;
+            function play() { v.play().catch(function(){}); }
+            if (v.readyState >= 2) { play(); }
+            else { v.addEventListener('loadeddata', play, { once: true }); }
+            document.addEventListener('touchstart', function() { if (v.paused) play(); }, { once: true });
+            document.addEventListener('click', function() { if (v.paused) play(); }, { once: true });
+        })();
+    </script>
     <!-- Card entrance animation -->
     <script>
         const cards = document.querySelectorAll('.card');
