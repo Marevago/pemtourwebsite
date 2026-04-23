@@ -65,15 +65,20 @@
         <script>
             (function() {
                 var v = document.getElementById('hero-video');
-                v.src = window.innerWidth < 768
+                var isMobile = window.matchMedia('(max-width: 767px)').matches;
+                v.muted = true;
+                v.src = isMobile
                     ? './images/jolimont-cover-mobile.mp4'
                     : './images/jolimont-cover-desktop.mp4';
                 v.load();
-                v.play().catch(function() {
-                    v.addEventListener('canplay', function() {
-                        v.play().catch(function(){});
-                    }, { once: true });
-                });
+                var p = v.play();
+                if (p !== undefined) {
+                    p.catch(function() {
+                        v.addEventListener('canplay', function() {
+                            v.play().catch(function(){});
+                        }, { once: true });
+                    });
+                }
             })();
         </script>
         <div class="masthead-overlay"></div>
