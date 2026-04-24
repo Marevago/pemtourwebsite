@@ -380,6 +380,12 @@
             v.addEventListener('loadeddata', tryPlay, { once: true });
             document.addEventListener('touchstart', function() { tryPlay(); }, { once: true });
             document.addEventListener('click', function() { tryPlay(); }, { once: true });
+            // Skip 1 second on mobile
+            if (window.matchMedia('(max-width: 767.98px)').matches) {
+                v.addEventListener('loadedmetadata', function() {
+                    v.currentTime = 1;
+                });
+            }
         })();
     </script>
     <!-- Navbar scroll effect -->
