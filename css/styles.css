@@ -10879,6 +10879,19 @@ html {
   padding-top: 1rem;
   padding-bottom: 1rem;
   background-color: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+}
+.hero-page #mainNav {
+  background-color: transparent;
+  box-shadow: none;
+}
+.hero-page #mainNav .navbar-toggler {
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.hero-page #mainNav .navbar-nav .nav-item .nav-link {
+  color: rgba(255,255,255,0.9);
 }
 #mainNav .navbar-brand {
   font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -10890,6 +10903,7 @@ html {
   font-size: 0.875rem;
   padding: 0.75rem 1rem;
   color: #212529;
+  border-color: rgba(0,0,0,0.15);
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   color: #212529;
@@ -10897,8 +10911,34 @@ html {
 #mainNav .navbar-nav .nav-item .nav-link:hover {
   color: #6c757d;
 }
+.hero-page #mainNav .navbar-nav .nav-item .nav-link:hover {
+  color: #fff;
+}
 #mainNav .navbar-nav .nav-item .nav-link.active {
   color: #FFD83C;
+}
+/* Logo switching: sub-pages always show color logo */
+#mainNav .logo-color { display: block; }
+#mainNav .logo-white { display: none; }
+/* Hero page: white logo until scrolled */
+.hero-page #mainNav .logo-color { display: none; }
+.hero-page #mainNav .logo-white { display: block; }
+.hero-page #mainNav.scrolled .logo-color { display: block; }
+.hero-page #mainNav.scrolled .logo-white { display: none; }
+/* Scrolled state */
+#mainNav.scrolled {
+  background-color: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+}
+#mainNav.scrolled .navbar-toggler {
+  color: #212529;
+  border-color: rgba(0,0,0,0.15);
+}
+#mainNav.scrolled .navbar-nav .nav-item .nav-link {
+  color: #212529;
+}
+#mainNav.scrolled .navbar-nav .nav-item .nav-link:hover {
+  color: #6c757d;
 }
 
 /*!
@@ -11094,10 +11134,41 @@ footer a:hover, footer a:active, footer a:focus {
 }
 
 .masthead {
-  position: relative;
+  position: sticky;
+  top: 0;
   overflow: hidden;
   padding-top: 16rem;
   padding-bottom: 6rem;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+/* Sections that slide over the sticky hero */
+#sobre,
+#passeios,
+.bg-grey,
+footer {
+  position: relative;
+  z-index: 1;
+}
+#sobre {
+  background-color: #fff;
+}
+#sobre #img-carro {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#sobre #img-carro.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (max-width: 767.98px) {
+  .masthead {
+    min-height: unset;
+    padding-top: 16rem;
+    padding-bottom: 3rem;
+  }
 }
 .masthead-bg-video {
   position: absolute;
@@ -11107,6 +11178,46 @@ footer a:hover, footer a:active, footer a:focus {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+}
+.hero-mockup-col {
+  display: none;
+}
+@media (max-width: 991.98px) {
+  .hero-slideshow { display: none; }
+}
+@media (min-width: 992px) {
+  .masthead-bg-video { display: none !important; }
+  .hero-mockup-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .masthead {
+    padding-top: 10rem;
+  }
+  .masthead .masthead-device-mockup {
+    width: 18rem;
+  }
+  .masthead .masthead-device-mockup .device-wrapper {
+    width: 18rem;
+    max-width: 18rem;
+  }
+}
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease-in-out;
+}
+.hero-slide.active {
+  opacity: 1;
 }
 .masthead-overlay {
   position: absolute;
@@ -11120,6 +11231,12 @@ footer a:hover, footer a:active, footer a:focus {
 .masthead .container {
   position: relative;
   z-index: 2;
+}
+.masthead h1 {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 1px 6px rgba(0,0,0,0.8);
+}
+.masthead p {
+  text-shadow: 0 1px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7);
 }
 .btn-whatsapp {
   background-color: #25d366;
@@ -11399,8 +11516,9 @@ i:hover{
 .card {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease;
+    will-change: transform, opacity;
+    box-shadow: none;
     border: none;
     border-radius: 0.75rem;
     overflow: hidden;
@@ -11408,11 +11526,49 @@ i:hover{
 .card.visible {
     opacity: 1;
     transform: translateY(0);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
 }
-.card:hover {
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+.card.visible:hover,
+.card.visible:active {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
     transform: translateY(-6px);
 }
-.card.visible:hover {
-    transform: translateY(-6px);
+@media (hover: none) {
+    .card.visible.elevated {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    }
+}
+.card-slideshow {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    border-radius: 0.75rem 0.75rem 0 0;
+}
+.card-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+.card-slide.active {
+    opacity: 1;
+}
+a .card-title,
+a .card-text {
+    color: #212529;
+}
+.kongo-card {
+    opacity: 1 !important;
+    cursor: pointer;
+}
+@keyframes kongo-glow {
+    0%, 100% { box-shadow: 0 0 6px 2px rgba(255, 193, 7, 0.5); }
+    50%       { box-shadow: 0 0 18px 6px rgba(255, 193, 7, 0.9); }
+}
+.kongo-card .btn-confira {
+    animation: kongo-glow 2s ease-in-out infinite;
 }

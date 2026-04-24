@@ -31,5 +31,36 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // Navbar scroll: transparent on hero pages, always solid on sub-pages
+    var nav = document.getElementById('mainNav');
+    if (nav) {
+        var hasMasthead = document.querySelector('.masthead');
+        if (!hasMasthead) {
+            nav.classList.add('scrolled');
+        } else {
+            function onScroll() {
+                if (window.scrollY > 60) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        }
+    }
+
+    // Highlight image animation (#img-carro)
+    var imgCarro = document.getElementById('img-carro');
+    if (imgCarro) {
+        var imgObs = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                imgCarro.classList.add('visible');
+                imgObs.disconnect();
+            }
+        }, { threshold: 0.2 });
+        imgObs.observe(imgCarro);
+    }
+
 });
 
