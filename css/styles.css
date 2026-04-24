@@ -11538,6 +11538,14 @@ i:hover{
         transform: translateY(-6px);
         box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
     }
+    .card.visible:hover {
+        transform: translateY(0);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+    }
+    .card.visible.elevated:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    }
 }
 .card-slideshow {
     position: relative;
