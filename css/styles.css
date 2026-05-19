@@ -11166,7 +11166,7 @@ footer {
 @media (max-width: 767.98px) {
   .masthead {
     min-height: unset;
-    padding-top: 16rem;
+    padding-top: 12rem;
     padding-bottom: 3rem;
   }
 }
@@ -11584,14 +11584,44 @@ a .card-text {
 /* DEPOIMENTOS */
 #depoimentos {
     padding: 5rem 0;
-    background: #fafafa;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.depoimentos-bg {
+    position: absolute;
+    inset: 0;
+    background: url('../images/inicialJolimont.webp') center/cover no-repeat;
+    z-index: 0;
+}
+.depoimentos-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+#depoimentos > .container {
+    position: relative;
+    z-index: 2;
 }
 #depoimentos h2 {
     font-weight: 700;
 }
-#depoimentos > .container > p {
-    font-size: 1rem;
+.depoimentos-stats .stars-big {
+    color: #FFD83C;
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.depoimentos-stats .stats-text {
+    color: #fff;
+    font-size: 1.15rem;
     letter-spacing: 0.02em;
+}
+.depoimentos-stats .stats-text strong {
+    color: #FFD83C;
+    font-weight: 700;
 }
 .testimonial-carousel {
     max-width: 760px;

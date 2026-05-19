@@ -27,7 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap"
         rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css?v=20260519b" rel="stylesheet" />
+    <link href="css/styles.css?v=20260519j" rel="stylesheet" />
     <!--ICONS-->
      <!--FONT AWESOME (async to avoid render blocking)-->
      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -311,11 +311,16 @@
     </section>
     <!-- DEPOIMENTOS section-->
     <section id="depoimentos">
-        <div class="container px-5">
-            <h2 class="display-4 lh-1 mb-3 text-center">O que dizem sobre nós</h2>
-            <p class="text-center text-muted mb-5">
-                <i class="fab fa-google me-2"></i>Avaliações reais no Google
-            </p>
+        <div class="depoimentos-bg"></div>
+        <div class="depoimentos-overlay"></div>
+        <div class="container px-5 position-relative">
+            <h2 class="display-4 lh-1 mb-3 text-center text-white">O que dizem sobre nós</h2>
+            <div class="depoimentos-stats text-center mb-5">
+                <div class="stars-big">★★★★★</div>
+                <p class="stats-text mb-0">
+                    <strong>314 avaliações</strong> no Google &middot; <strong>Todas 5 estrelas</strong>
+                </p>
+            </div>
             <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel" data-bs-interval="7000">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -390,11 +395,6 @@
                     <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4"></button>
                     <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="5"></button>
                 </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="https://maps.app.goo.gl/fchRrHSkdetAVPpr5" target="_blank" rel="noopener" class="btn btn-warning btn-confira">
-                    <i class="fab fa-google me-2"></i>Ver todas no Google
-                </a>
             </div>
         </div>
     </section>
