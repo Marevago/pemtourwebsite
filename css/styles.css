@@ -11185,9 +11185,8 @@ footer {
 @media (max-width: 991.98px) {
   .hero-slideshow { display: none; }
 }
-.hero-video-only .masthead-bg-video { display: block !important; }
 @media (min-width: 992px) {
-  .masthead:not(.hero-video-only) .masthead-bg-video { display: none !important; }
+  .masthead-bg-video { display: none !important; }
   .hero-mockup-col {
     display: flex;
     justify-content: center;

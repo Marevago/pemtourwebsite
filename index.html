@@ -61,11 +61,51 @@
         </div>
     </nav>
     <!-- Mashead header-->
-    <header class="masthead hero-video-only">
+    <header class="masthead">
+        <!-- Background: slides (desktop) / video (mobile) -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image:url('./images/cover-slide1.webp')"></div>
+            <div class="hero-slide" style="background-image:url('./images/cover-slide2.webp')"></div>
+            <div class="hero-slide" style="background-image:url('./images/cover-slide3.jpeg')"></div>
+        </div>
         <video class="masthead-bg-video" muted autoplay loop playsinline>
-            <source src="./images/jolimont-cover-desktop.mp4" type="video/mp4" media="(min-width: 992px)" />
             <source src="./images/jolimont-cover-mobile.mp4" type="video/mp4" />
         </video>
+        <div class="masthead-overlay"></div>
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <!-- Text -->
+                <div class="col-lg-6 text-center text-lg-start">
+                    <div class="mb-5 mb-lg-0">
+                        <h1 class="display-1 lh-1 mb-3 text-white">Você já conhece a Vitivinícola Jolimont?</h1>
+                        <br />
+                        <p class="lead fw-normal text-white mb-5">Encantos como esse te esperam na Serra Gaúcha!
+                            <br />
+                            Quer saber como conhecer? Fale conosco:
+                        </p>
+                        <a href="https://api.whatsapp.com/send?phone=5551985994699&text=P%26M%20Tour%20-%20Passeios" target="_blank">
+                            <button type="button" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp me-2"></i>Quero saber mais
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <!-- Phone mockup (desktop only) -->
+                <div class="col-lg-6 hero-mockup-col">
+                    <div class="masthead-device-mockup">
+                        <div class="device-wrapper">
+                            <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
+                                <div class="screen bg-black">
+                                    <video muted autoplay loop playsinline style="max-width:100%;height:100%;object-fit:cover;">
+                                        <source src="./images/jolimont-cover-desktop.mp4" type="video/mp4" />
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
  
     <!-- App SOBRE section-->
