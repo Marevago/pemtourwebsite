@@ -71,7 +71,7 @@
                                 de toda a família.
                             </p>
                             <div class="mb-5">
-                                <a href="https://api.whatsapp.com/send?phone=5551985994699&text=P%26M%20Tour%20-%20Noite%20Italiana" target="_blank">
+                                <a href="https://api.whatsapp.com/send?phone=5551985994699&text=P%26M%20Tour%20-%20Noite%20Italiana" target="_blank" onclick="return gtag_report_conversion(this.href);">
                                     <button type="button" class="btn btn-whatsapp">
                                         <i class="fab fa-whatsapp me-2"></i>Quero curtir esse jantar
                                     </button>
@@ -159,7 +159,7 @@
         <a href="https://www.instagram.com/pemtourgramado/" target="_blank">
             <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://api.whatsapp.com/send?phone=5551985994699&text=P%26M%20Tour-Gramado" target="_blank">
+        <a href="https://api.whatsapp.com/send?phone=5551985994699&text=P%26M%20Tour-Gramado" target="_blank" onclick="return gtag_report_conversion(this.href);">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -177,8 +177,23 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js?v=20260426"></script>
     <!-- Floating WhatsApp Button -->
-    <a href="https://api.whatsapp.com/send?phone=5551985994699&text=P%26M%20Tour-Gramado" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
+    <a href="https://api.whatsapp.com/send?phone=5551985994699&text=P%26M%20Tour-Gramado" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp" onclick="return gtag_report_conversion(this.href);">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-10984122115/F9VHCKmShMocEIPO0fUo',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 </body>
 </html>
